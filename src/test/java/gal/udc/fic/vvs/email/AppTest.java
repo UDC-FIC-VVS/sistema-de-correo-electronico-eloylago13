@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import gal.udc.fic.vvs.email.archivador.Archivador;
 import gal.udc.fic.vvs.email.archivador.ArchivadorSimple;
+import gal.udc.fic.vvs.email.archivo.Archivo;
 import gal.udc.fic.vvs.email.archivo.Texto;
 import gal.udc.fic.vvs.email.correo.Correo;
 import gal.udc.fic.vvs.email.correo.CorreoAbstracto;
@@ -127,8 +128,63 @@ public class AppTest
 
     /** TESTS PARA ARCHIVO**/
 
+    /**
+     *
+     */
+    @Test
+    public void obtenerNombreArchivoTest(){
+        String contenido = "contenido";
+        String nombre = "nombre";
 
+        Texto arch = new Texto(nombre, contenido);
 
+        Assert.assertEquals(nombre, arch.obtenerNombre());
+
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void obtenerContenidoArchivoTest(){
+        String contenido = "contenido";
+        String nombre = "nombre";
+
+        Texto arch = new Texto(nombre, contenido);
+
+        Assert.assertEquals(contenido, arch.obtenerContenido());
+
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void obtenerTamañoArchivoTest(){
+        String contenido = "contenido";
+        int length = contenido.length();
+        String nombre = "nombre";
+
+        Texto arch = new Texto(nombre, contenido);
+
+        Assert.assertEquals(length, arch.obtenerTamaño());
+
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void obtenerPrevisualizacionArchivoTest(){
+        String contenido = "contenido";
+        String nombre = "nombre";
+        Texto arch = new Texto(nombre, contenido);
+
+        String previ = nombre + "(" + contenido.length() + " bytes, " + "text/plain" + ")";
+
+        Assert.assertEquals(previ, arch.obtenerPreVisualizacion());
+
+    }
 
 
     /***************************************************************/
