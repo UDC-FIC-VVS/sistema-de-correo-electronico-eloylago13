@@ -1,14 +1,14 @@
 package gal.udc.fic.vvs.email;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import gal.udc.fic.vvs.email.archivador.Archivador;
 import gal.udc.fic.vvs.email.archivador.ArchivadorSimple;
 import gal.udc.fic.vvs.email.archivo.Archivo;
+import gal.udc.fic.vvs.email.archivo.Imagen;
 import gal.udc.fic.vvs.email.archivo.Texto;
-import gal.udc.fic.vvs.email.correo.Correo;
-import gal.udc.fic.vvs.email.correo.CorreoAbstracto;
-import gal.udc.fic.vvs.email.correo.Mensaje;
+import gal.udc.fic.vvs.email.correo.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -310,6 +310,119 @@ public class AppTest
         Assert.assertEquals(0,((Vector)mensaje.buscar(cadenaBusqueda3)).size());
 
     }
+
+    /**
+     * CON TEXTO NULO NO PASA TEST. DEBERÍA DE DEVOLVER CADENA VACÍA.
+     */
+    @Test
+    public void mensajeTextoNulo() {
+
+        String textoVacio = null;
+        String textoCortoEsperado = "";
+        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
+        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
+
+        Assert.assertEquals(textoCortoEsperado, mensajeVacio.obtenerVisualizacion());
+        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
+
+    }
+
+
+    /**
+     *
+     */
+    @Test
+    public void mensajeSinTexto() {
+        String textoVacio = "";
+        String textoEsperado = "";
+        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
+        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
+
+        Assert.assertEquals(textoEsperado, mensajeVacio.obtenerVisualizacion());
+        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
+    }
+
+    /**
+     * FUNCIONAMIENTO INCORRECTO. NO SE DEBERÍA DE PODER HACER UN RENVÍO DE UN NULO.
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void mensajeReenvioSobreNull(){
+
+        String textoPrimero = "Hola";
+        Texto nuevoTextoPrimero = new Texto("ContenidoPrimero", textoPrimero);
+        Mensaje mensajePrimero = new Mensaje(nuevoTextoPrimero);
+
+
+        String textoSegundo = "Adiós";
+        Texto nuevoTextoSegundo = new Texto("ContenidoSegundo", textoSegundo);
+        Mensaje mensajeSegundo = new Mensaje(nuevoTextoSegundo);
+
+        Reenvio reenvio = new Reenvio(mensajePrimero, null);
+
+    }
+
+    /**
+     * FUNCIONAMIENTO INCORRECTO. NO SE DEBERÍA DE PODER HACER UN ADJUNTO SOBRE UN MENSAJE NULO.
+     */
+    @Test (expected = Exception.class)
+    public void decoradorSobreNulo(){
+
+        String textoPrimero = "Hola";
+        Texto nuevoTextoPrimero = new Texto("ContenidoPrimero", textoPrimero);
+        Mensaje mensajePrimero = new Mensaje(nuevoTextoPrimero);
+
+        Imagen imagen = new Imagen("Paisaje", "muchosBytes");
+
+        Adjunto adjunto = new Adjunto(null, imagen);
+
+    }
+
+    /**
+     * FUNCIONAMIENTO CORRECTO.
+     */
+    @Test
+    public void decoradorMensajeLongitud(){
+
+        String textoPrimero = "Hola";
+        Texto nuevoTextoPrimero = new Texto("ContenidoPrimero", textoPrimero);
+        Mensaje mensajePrimero = new Mensaje(nuevoTextoPrimero);
+
+        Imagen imagen = new Imagen("Paisaje", "muchosBytes");
+
+        Adjunto adjunto = new Adjunto(mensajePrimero, imagen);
+
+        Assert.assertEquals("muchosBytes".length() + mensajePrimero.obtenerTamaño(), adjunto.obtenerTamaño());
+
+    }
+
+    /**
+     * FUNCIONAMIENTO CORRECTO.
+     */
+    @Test
+    public void decoradorMensajeExplorar()  {
+
+        String textoPrimero = "Hola";
+        Texto nuevoTextoPrimero = new Texto("ContenidoPrimero", textoPrimero);
+        Mensaje mensajePrimero = new Mensaje(nuevoTextoPrimero);
+
+        Imagen imagen = new Imagen("Paisaje", "muchosBytes");
+
+        Adjunto adjunto = new Adjunto(mensajePrimero, imagen);
+
+        try {
+            adjunto.explorar();
+            fail();
+        } catch (OperacionInvalida operacionInvalida) {
+            operacionInvalida.printStackTrace();
+        }
+    }
+
+    //probar con cabecera nula. Una cabecera no podria contener
+
+
+
+
+
 
 
 
