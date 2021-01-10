@@ -20,7 +20,6 @@ public class MensajeTest extends TestCase {
      */
     @Test
     public void testEstablecerLeidoMensaje() {
-
         Texto nuevoTexto = new Texto(nombre, contenido);
         Mensaje mensaje = new Mensaje(nuevoTexto);
 
@@ -38,7 +37,7 @@ public class MensajeTest extends TestCase {
      *  Por último comprobamo que queda un mensaje como no leído.
      */
     @Test
-    public void testEstablecerNoLeidoMensaje() {
+    public void testEstablecerYObtenerNoLeidoMensaje() {
 
         Texto nuevoTexto = new Texto(nombre, contenido);
         Mensaje mensaje = new Mensaje(nuevoTexto);
@@ -52,44 +51,15 @@ public class MensajeTest extends TestCase {
         Assert.assertEquals(1, mensaje.obtenerNoLeidos());
     }
 
-    /**
-     * CON TEXTO NULO NO PASA TEST. DEBERÍA DE DEVOLVER CADENA VACÍA.
-     */
-    @Test
-    public void mensajeTextoNulo() {
 
-        String textoVacio = null;
-        String textoCortoEsperado = "";
-        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
-        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
-
-        Assert.assertEquals(textoCortoEsperado, mensajeVacio.obtenerVisualizacion());
-        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
-
-    }
-
-    /**
-     * Comprobamos que devuelve 0.
-     */
-    @Test
-    public void mensajeSinTexto() {
-        String textoVacio = "";
-        String textoEsperado = "";
-        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
-        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
-
-        Assert.assertEquals(textoEsperado, mensajeVacio.obtenerVisualizacion());
-        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
-    }
-
-   
 
     /** Comprobación de icono según el estado de leído de un mensaje.
      *  Primero creamos un mensaje que por defecto no estará leído, y comprobamos que el icono es el que le corresponde.
      *  Después lo marcamos como leído y luego vemos que el icono es el de leído.
      */
     @Test
-    public void testObtenerIconoTest() {
+
+    public void testObtenerIconoMensaje() {
         Texto nuevoTexto = new Texto(nombre, contenido);
         Mensaje mensaje = new Mensaje(nuevoTexto);
 
@@ -100,12 +70,13 @@ public class MensajeTest extends TestCase {
         Assert.assertEquals(Correo.ICONO_MENSAJE, mensaje.obtenerIcono());
     }
 
+
     /** Test que comprueba que trunca los mensajes mayores a una constante y no trunca los que son menores.
      * Creamos dos mensajes, uno largo y otro pequeño y comprobamos como devuelve la previsualización de ambos.
      * El mensaje corto debería de aparecer sin "..." ya que muestra el mensaje completo.
      */
     @Test
-    public void testObtenerPreVisualizacion() {
+    public void testTestObtenerPreVisualizacionMensaje() {
         String textoCorto = "Texto pequeño";
         //Aquí deberíamos de retocar el código para que si no lo trunca no ponga los ... Dará fallo porque no debe de aparecer eso.
         String textoCortoEsperado = textoCorto;
@@ -125,7 +96,7 @@ public class MensajeTest extends TestCase {
      *
      */
     @Test
-    public void testObtenerVisualizacion() {
+    public void testTestObtenerVisualizacionMensaje() {
         String textoCorto = "Texto pequeño";
         String textoCortoEsperado = textoCorto;
         String textoLargo = "Texto mucho más largo para probar que trunca con los tres puntos el texto en la previsualización";
@@ -144,7 +115,7 @@ public class MensajeTest extends TestCase {
      * Habría que corregir el código. Debería de dar un vector vacio. El código acepta una búsqueda con cadena vacía.
      */
     @Test
-    public void testBuscar() {
+    public void testTestBuscarMensaje() {
         Vector<Mensaje> coleccion = new Vector<Mensaje>();
 
         String contenido = "Texto de contenido";
@@ -167,6 +138,152 @@ public class MensajeTest extends TestCase {
         Assert.assertEquals(0,((Vector)mensaje.buscar(cadenaBusqueda3)).size());
     }
 
+    /**
+     * CON TEXTO NULO NO PASA TEST. DEBERÍA DE DEVOLVER CADENA VACÍA.
+     */
+    @Test
+    public void mensajeTextoNuloMensaje() {
+
+        String textoVacio = null;
+        String textoCortoEsperado = "";
+        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
+        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
+
+        Assert.assertEquals(textoCortoEsperado, mensajeVacio.obtenerVisualizacion());
+        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
+
+    }
+
+    /**
+     * Comprobamos que devuelve 0.
+     */
+    @Test
+    public void mensajeSinTextoMensaje() {
+        String textoVacio = "";
+        String textoEsperado = "";
+        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
+        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
+
+        Assert.assertEquals(textoEsperado, mensajeVacio.obtenerVisualizacion());
+        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
+    }
+
+
+    /**
+     * Funciona correctamente aunque debería de prescindir de los "...". Corregir previsualización
+     */
+    @Test
+    public void testObtenerRutaMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        //Como no tiene padre, debería de devolver la previsualización del contenido.
+        Assert.assertEquals("Texto de contenido...",mensaje.obtenerRuta());
+    }
+
+    /**
+     * Corregir el previsualización. No tiene sentido que devolvamos ... con un mensaje tan corto.
+     */
+    @Test
+    public void testObtenerRutaConPadreMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+        Texto nuevoTexto2 = new Texto(nombre+2, contenido+2);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto2);
+
+
+        mensaje2.establecerPadre(mensaje);
+        //Como no tiene padre, debería de devolver la previsualización del contenido.
+        Assert.assertEquals("Texto de contenido > Texto de contenido2",mensaje2.obtenerRuta());
+    }
+
+    /**
+     *
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testExplorarMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        try {
+            mensaje.explorar();
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testAñadirMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        Texto nuevoTexto2 = new Texto(nombre+2, contenido+2);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto);
+        try {
+            mensaje.añadir(mensaje2);
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testEliminarMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        Texto nuevoTexto2 = new Texto(nombre+2, contenido+2);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto);
+        try {
+            mensaje.eliminar(mensaje2);
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testObtenerHijoMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        Texto nuevoTexto2 = new Texto(nombre+2, contenido+2);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto);
+
+        mensaje2.establecerPadre(mensaje);
+
+        try {
+            mensaje.obtenerHijo(1);
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testEstablecerYObtenerPadreMensaje() {
+        Texto nuevoTexto = new Texto(nombre, contenido);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        Texto nuevoTexto2 = new Texto(nombre+2, contenido+2);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto);
+
+        mensaje2.establecerPadre(mensaje);
+
+
+        Assert.assertEquals(mensaje, mensaje2.obtenerPadre());
+
+    }
 
 
 
