@@ -32,11 +32,19 @@ public class TextoTest extends TestCase {
         Assert.assertEquals(nombreTexto,texto.obtenerNombre());
     }
 
+
+    @Test
+    public void testObtenerNombre() {
+        Texto texto = new Texto(nombreTexto, contenido);
+
+        Assert.assertEquals(nombreTexto, texto.obtenerNombre());
+    }
+
     /**
      *Obtener contenido del archivo texto.
      */
     @Test
-    public void obtenerContenidoImagenTest(){
+    public void testObtenerContenido() {
         Texto texto = new Texto(nombreTexto, contenido);
 
         Assert.assertEquals(contenido, texto.obtenerContenido());
@@ -46,25 +54,24 @@ public class TextoTest extends TestCase {
      *Obtener tamaño del archivo texto.
      */
     @Test
-    public void obtenerTamañoImagenTest(){
+    public void testObtenerTamaño() {
         Texto texto = new Texto(nombreTexto, contenido);
 
 
-        Assert.assertEquals((nombreTexto+contenido).length(), texto.obtenerTamaño());
-
+        Assert.assertEquals(contenido.length(), texto.obtenerTamaño());
     }
 
     /**
      *Obtener previsualización del archivo texto.
      */
     @Test
-    public void obtenerPrevisualizacionArchivoImagenTest(){
+    public void testObtenerPreVisualizacion() {
         Texto texto = new Texto(nombreTexto, contenido);
 
 
         String previ = nombreTexto + "(" + contenido.length() + " bytes, " + "text/plain" + ")";
 
         Assert.assertEquals(previ, texto.obtenerPreVisualizacion());
-
     }
+
 }

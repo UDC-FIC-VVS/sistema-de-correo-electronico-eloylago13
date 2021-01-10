@@ -22,53 +22,46 @@ public class AudioTest extends TestCase {
 
 
     /**
-     * Obtener nombre del archivo audio.
+     *Obtener nombre del archivo audio.
      */
     @Test
-    public void obtenerNombreAudioTest(){
+    public void testObtenerNombre() {
         Audio audio = new Audio(nombreAudio, contenido);
 
-        Assert.assertEquals(nombreAudio,audio.obtenerNombre());
+        Assert.assertEquals(nombreAudio, audio.obtenerNombre());
     }
 
     /**
      *Obtener contenido del archivo audio.
      */
     @Test
-    public void obtenerContenidoArchivoTest(){
+    public void testObtenerContenido() {
         Audio audio = new Audio(nombreAudio, contenido);
 
         Assert.assertEquals(contenido, audio.obtenerContenido());
     }
 
+
     /**
      *Obtener tamaño del archivo audio.
      */
-    @Test
-    public void obtenerTamañoArchivoTest(){
+    public void testObtenerTamaño() {
         Audio audio = new Audio(nombreAudio, contenido);
-
-
-        Assert.assertEquals((nombreAudio+contenido).length(), audio.obtenerTamaño());
-
+        Assert.assertEquals((contenido).length(), audio.obtenerTamaño());
     }
 
     /**
      *Obtener previsualización del archivo audio.
      */
     @Test
-    public void obtenerPrevisualizacionArchivoTest(){
+    public void testObtenerPreVisualizacion() {
         Audio audio = new Audio(nombreAudio, contenido);
 
 
-        String previ = nombreAudio + "(" + contenido.length() + " bytes, " + "text/plain" + ")";
+        String previ = nombreAudio + "(" + contenido.length() + " bytes, " + "audio/ogg" + ")";
 
         Assert.assertEquals(previ, audio.obtenerPreVisualizacion());
-
     }
-
-
-
 
 
 }

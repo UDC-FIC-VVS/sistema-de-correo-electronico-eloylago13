@@ -20,12 +20,11 @@ public class ImagenTest extends TestCase {
         Assert.assertEquals("image/png", mimeType);
     }
 
-
     /**
      * Obtener nombre del archivo imagen.
      */
     @Test
-    public void obtenerNombreImagenTest(){
+    public void testObtenerNombre() {
         Imagen imagen = new Imagen(nombreImagen, contenido);
 
         Assert.assertEquals(nombreImagen,imagen.obtenerNombre());
@@ -35,7 +34,7 @@ public class ImagenTest extends TestCase {
      *Obtener contenido del archivo imagen.
      */
     @Test
-    public void obtenerContenidoImagenTest(){
+    public void testObtenerContenido() {
         Imagen imagen = new Imagen(nombreImagen, contenido);
 
         Assert.assertEquals(contenido, imagen.obtenerContenido());
@@ -45,25 +44,25 @@ public class ImagenTest extends TestCase {
      *Obtener tamaño del archivo imagen.
      */
     @Test
-    public void obtenerTamañoImagenTest(){
+    public void testObtenerTamaño() {
         Imagen imagen = new Imagen(nombreImagen, contenido);
 
 
-        Assert.assertEquals((nombreImagen+contenido).length(), imagen.obtenerTamaño());
-
+        Assert.assertEquals(contenido.length(), imagen.obtenerTamaño());
     }
 
     /**
      *Obtener previsualización del archivo imagen.
      */
     @Test
-    public void obtenerPrevisualizacionArchivoImagenTest(){
+    public void testObtenerPreVisualizacion() {
         Imagen imagen = new Imagen(nombreImagen, contenido);
 
 
-        String previ = nombreImagen + "(" + contenido.length() + " bytes, " + "text/plain" + ")";
+        String previ = nombreImagen + "(" + contenido.length() + " bytes, " + "image/png" + ")";
 
         Assert.assertEquals(previ, imagen.obtenerPreVisualizacion());
-
     }
+
+
 }

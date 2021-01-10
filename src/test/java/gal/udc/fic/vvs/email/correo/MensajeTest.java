@@ -82,7 +82,7 @@ public class MensajeTest extends TestCase {
         Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
     }
 
-
+   
 
     /** Comprobación de icono según el estado de leído de un mensaje.
      *  Primero creamos un mensaje que por defecto no estará leído, y comprobamos que el icono es el que le corresponde.
