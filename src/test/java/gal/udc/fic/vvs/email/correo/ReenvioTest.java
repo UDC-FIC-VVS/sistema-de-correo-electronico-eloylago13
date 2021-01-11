@@ -11,17 +11,26 @@ import java.util.Vector;
 public class ReenvioTest extends TestCase {
 
 
-    Audio audio = new Audio("Cancion", "contenido");
 
     String nombreTexto = "Texto";
     String contenidoTexto = "contenido";
     Texto texto = new Texto(nombreTexto, contenidoTexto);
     Correo correo = new Mensaje(texto);
 
-    String nombreReenvio= "Texto";
-    String contenidoRenvio = "contenido";
+    String nombreReenvio= "TextoReenvio";
+    String contenidoRenvio = "contenidoReenvio";
     Texto reenvioTexto = new Texto(nombreReenvio, contenidoRenvio);
     Mensaje reenvioMensaje = new Mensaje(reenvioTexto);
+
+    String nombreTexto2 = "Texto2";
+    String contenidoTexto2 = "contenido2";
+    Texto texto2 = new Texto(nombreTexto2, contenidoTexto2);
+    Correo correo2 = new Mensaje(texto2);
+
+    String nombreReenvio2= "TextoReenvio2";
+    String contenidoRenvio2 = "contenidoReenvio2";
+    Texto reenvioTexto2 = new Texto(nombreReenvio2, contenidoRenvio2);
+    Mensaje reenvioMensaje2 = new Mensaje(reenvioTexto2);
 
     /**
      *
@@ -115,45 +124,84 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
+     * Hace añadir de correo que suelta una operación inválida.
+     */
+    @Test (expected =  OperacionInvalida.class)
+    public void testAñadir() {
+        Reenvio reenvio = new Reenvio(reenvioMensaje, correo);
+        String nombreTextoMensaje = "Textoprueba";
+        String contenidoTextoMensaje = "contenidoprueba";
+        Texto textoMensaje = new Texto(nombreTextoMensaje, contenidoTextoMensaje);
+        Mensaje mensajeAdd = new Mensaje(textoMensaje);
+
+        try {
+            reenvio.añadir(mensajeAdd);
+        } catch (OperacionInvalida operacionInvalida) {
+        }
+
+    }
+
+    /**
+     * Hace eliminar de correo que suelta una operación inválida.
+     */
+    @Test (expected =  OperacionInvalida.class)
+    public void testEliminar() {
+        Reenvio reenvio = new Reenvio(reenvioMensaje, correo);
+        String nombreTextoMensaje = "Textoprueba";
+        String contenidoTextoMensaje = "contenidoprueba";
+        Texto textoMensaje = new Texto(nombreTextoMensaje, contenidoTextoMensaje);
+        Mensaje mensajeAdd = new Mensaje(textoMensaje);
+
+        try {
+            reenvio.eliminar(mensajeAdd);
+        } catch (OperacionInvalida operacionInvalida) {
+        }
+    }
+
+    /**
      *
      */
     @Test
-    public void testAñadir() {
+    public void testObtenerHijoYEstablecerPadre() {
+        Reenvio reenvio = new Reenvio(reenvioMensaje, correo);
+        Reenvio reenvio2 = new Reenvio(reenvioMensaje2, correo2);
+
+        reenvio.establecerPadre(reenvio2);
+
+        try {
+            Assert.assertEquals(reenvio, reenvio2.obtenerHijo(1));
+        } catch (OperacionInvalida operacionInvalida) {
+        }
 
     }
 
-    public void testEliminar() {
-    }
-
-    public void testObtenerHijo() {
-    }
-
+    /**
+     *
+     */
+    @Test
     public void testObtenerPadre() {
+        Reenvio reenvio = new Reenvio(reenvioMensaje, correo);
+        Reenvio reenvio2 = new Reenvio(reenvioMensaje2, correo2);
+
+        reenvio.establecerPadre(reenvio2);
+
+        Assert.assertEquals(reenvio2, reenvio.obtenerPadre());
+
     }
 
-    public void testEstablecerPadre() {
-    }
 
+    /**
+     * Mismo fallo previsualización. "..."
+     */
+    @Test
     public void testTestObtenerRuta() {
+        Reenvio reenvio = new Reenvio(reenvioMensaje, correo);
+
+        Assert.assertEquals(contenidoRenvio,reenvio.obtenerRuta());
     }
 
-    public void testTestExplorar() {
-    }
 
-    public void testTestAñadir() {
-    }
 
-    public void testTestEliminar() {
-    }
-
-    public void testTestObtenerHijo() {
-    }
-
-    public void testTestObtenerPadre() {
-    }
-
-    public void testTestEstablecerPadre() {
-    }
 
 
 }
