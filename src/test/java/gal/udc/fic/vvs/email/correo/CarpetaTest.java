@@ -238,7 +238,7 @@ public class CarpetaTest extends TestCase {
         Mensaje mensaje = new Mensaje(nuevoTexto);
 
         Texto nuevoTexto2 = new Texto(nombre, contenido);
-        Mensaje mensaje2 = new Mensaje(nuevoTexto);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto2);
 
         try {
             carpeta.añadir(mensaje);
