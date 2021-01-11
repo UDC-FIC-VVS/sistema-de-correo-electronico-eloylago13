@@ -96,7 +96,7 @@ public class AdjuntoTest extends TestCase {
     /**
      *
      */
-    @Test
+    @Test (expected = OperacionInvalida.class)
     public void testExplorar() {
         Adjunto adjunto = new Adjunto(mensaje, audio);
 
