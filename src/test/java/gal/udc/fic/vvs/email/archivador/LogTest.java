@@ -47,14 +47,6 @@ public class LogTest extends TestCase {
         Assert.assertEquals(100- correo.obtenerTamaño(), log.obtenerEspacioDisponible());
     }
 
-    @Test
-    public void testEstablecerYObtenerDelegado() {
-        Log log = new Log(decorado);
-        Archivador archvDel = new ArchivadorSimple("nombre", 100);
-        log.establecerDelegado(archvDel);
-
-        Assert.assertEquals(archvDel,log.obtenerDelegado());
-    }
 
 
 
