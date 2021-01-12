@@ -25,7 +25,6 @@ public class ArchivadorSimpleTestPBT {
      *
      * Mecanismo de selección dos datos: generado aleatoriamente
      */
-    @Test
     @Property
     public void testObtenerNombre(String nombre, @InRange(min="1") int espacio) {
         ArchivadorSimple arch = new ArchivadorSimple(nombre, espacio);
