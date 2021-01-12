@@ -7,13 +7,31 @@ import org.junit.Test;
 
 import java.util.Vector;
 
-public class CarpetaTest extends TestCase {
+public class CarpetaTest {
 
     private String nombre = "Contenido";
     private String contenido = "Texto de contenido";
 
 
     private String _nombre = "carpeta";
+
+
+    /**
+     * Comprobación de que no puede añadir una carpeta con nombre nulo
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No podemos realizar esta operación
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void carpetaNombreNull() {
+        Carpeta carpeta = new Carpeta(null);
+
+    }
+
 
     /**
      * Comprobación de que devuleve el añade y devuelve lo esperado a partir de lo añadido
@@ -52,6 +70,30 @@ public class CarpetaTest extends TestCase {
             Assert.assertEquals(expected, carpeta.explorar());
         } catch (OperacionInvalida operacionInvalida) {
         }
+
+    }
+
+    /**
+     * Comprobación de que devuleve el añade y devuelve lo esperado a partir de lo añadido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *          Debería de devolver operación inválida y no nullpointer
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testAñadirNull() {
+        Carpeta carpeta = new Carpeta(_nombre);
+
+        try {
+            carpeta.añadir(null);
+
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+
 
     }
 
@@ -99,6 +141,30 @@ public class CarpetaTest extends TestCase {
     }
 
     /**
+     * Comprobación de que devuleve el elimina y devuelve lo esperado a partir de lo añadido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *          Debería de devolver operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testEliminarNull() {
+        Carpeta carpeta = new Carpeta(_nombre);
+
+        try {
+            carpeta.eliminar(null);
+
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+
+
+    }
+
+    /**
      * Comprobación de que obtiene hijo correctamente
      *
      * Nivel da proba: UNIDAD
@@ -133,6 +199,48 @@ public class CarpetaTest extends TestCase {
             operacionInvalida.printStackTrace();
         }
     }
+
+
+    /**
+     * Comprobación de que obtiene null cuando no hay hijos
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No devuleve el null
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test
+    public void testObtenerHijoSinHijo() {
+        Carpeta carpeta = new Carpeta(_nombre);
+
+
+        try {
+            Assert.assertEquals(null,carpeta.obtenerHijo(1));
+
+        } catch (OperacionInvalida operacionInvalida) {
+        }
+    }
+
+
+    /**
+     * Comprobación de que obtenemos una operacion invalida al añadir padre null
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      Debería de devolver Operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testEstablecerPadreNull() {
+        Carpeta carpeta = new Carpeta(_nombre);
+
+        carpeta.establecerPadre(null);
+    }
+
     /**
      * Comprobación de que establece como leido correctamente y devuelve los no leidos
      *
@@ -195,6 +303,23 @@ public class CarpetaTest extends TestCase {
 
         }
         Assert.assertEquals((contenido+contenido).length(),carpeta.obtenerTamaño());
+    }
+
+    /**
+     * Comprobación de que obtiene el tamaño correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test
+    public void testObtenerTamañoVacio() {
+        Carpeta carpeta = new Carpeta(_nombre);
+
+
+        Assert.assertEquals(0,carpeta.obtenerTamaño());
     }
 
     /**
@@ -303,6 +428,25 @@ public class CarpetaTest extends TestCase {
         Vector v = new Vector();
         v.add(mensaje);
         v.add(mensaje2);
+        Assert.assertEquals(v, carpeta.buscar(nombre));
+    }
+
+    /**
+     * Comprobación de que busca correctamente con algo añadido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test
+    public void testBuscarSinNada() {
+
+        Carpeta carpeta = new Carpeta(_nombre);
+
+        Vector v = new Vector();
+
         Assert.assertEquals(v, carpeta.buscar(nombre));
     }
 }

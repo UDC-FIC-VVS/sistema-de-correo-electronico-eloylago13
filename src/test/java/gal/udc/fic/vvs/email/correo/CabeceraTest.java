@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import java.util.Vector;
 
-public class CabeceraTest extends TestCase {
+public class CabeceraTest {
 
     private String nombreCabecera = "Cabecera";
     private String valorCabecera = "valor";
@@ -16,6 +16,36 @@ public class CabeceraTest extends TestCase {
     String contenidoTexto = "contenido";
     Texto texto = new Texto(nombreTexto, contenidoTexto);
     MensajeAbstracto mensaje = new Mensaje(texto);
+
+    /**
+     * Comprobación de que cabecera no se puede hacer sobre null
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de poder hacerse cabecera sobre null
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void cabeceraSobreNullTest() {
+        Cabecera cabecera = new Cabecera(null, nombreCabecera, valorCabecera);
+    }
+
+    /**
+     * Comprobación de que cabecera no se puede con nulls
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de poder hacerse cabecera sobre null
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void cabeceraConNullTest() {
+        Cabecera cabecera = new Cabecera(mensaje, null, null);
+    }
 
     /**
      * Comprobación de que establece como leido y no obtiene ningún no leído
@@ -51,6 +81,24 @@ public class CabeceraTest extends TestCase {
         Assert.assertEquals((nombreCabecera+valorCabecera+contenidoTexto).length(), cabecera.obtenerTamaño());
 
     }
+
+    /**
+     * Comprobación de que devuleve el tamaño correcto
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test
+    public void testObtenerTamañoVacios() {
+        Cabecera cabecera = new Cabecera(mensaje, "", "");
+
+        Assert.assertEquals((contenidoTexto).length(), cabecera.obtenerTamaño());
+
+    }
+
 
     /**
      * Comprobación de que devuleve el icono correcto

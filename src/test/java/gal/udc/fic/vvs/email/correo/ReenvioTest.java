@@ -32,6 +32,39 @@ public class ReenvioTest extends TestCase {
     Texto reenvioTexto2 = new Texto(nombreReenvio2, contenidoRenvio2);
     Mensaje reenvioMensaje2 = new Mensaje(reenvioTexto2);
 
+
+    /**
+     * Comprobación de que crear sobre nulo un adjunto
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativo
+     *      Hacer un adjunto sobre nulo devería de dar operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void reenvioSobreNull() {
+        Reenvio reenvio = new Reenvio(null, correo);
+
+    }
+
+    /**
+     * Comprobación de que crear con elemento nulo un adjunto
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativo
+     *      Hacer un adjunto sobre nulo devería de dar operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void reenvioConNull() {
+        Adjunto adjunto = new Adjunto(reenvioMensaje, null);
+
+    }
+
     /**
      * Comprobación de que devuleve el tamaño correcto
      *

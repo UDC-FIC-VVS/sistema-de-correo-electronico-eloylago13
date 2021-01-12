@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.util.Vector;
 
-public class AdjuntoTest extends TestCase {
+public class AdjuntoTest {
 
     private String nombreAudio = "Canción";
     private String contenidoAudio = "Canción número uno";
@@ -21,6 +21,37 @@ public class AdjuntoTest extends TestCase {
     MensajeAbstracto mensaje = new Mensaje(texto);
 
 
+    /**
+     * Comprobación de que crear sobre nulo un adjunto
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativo
+     *      Hacer un adjunto sobre nulo devería de dar operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void adjuntoSobreNull() {
+        Adjunto adjunto = new Adjunto(null, audio);
+
+    }
+
+    /**
+     * Comprobación de que crear con elemento nulo un adjunto
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativo
+     *      Hacer un adjunto sobre nulo devería de dar operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void adjuntoConNull() {
+        Adjunto adjunto = new Adjunto(mensaje, null);
+
+    }
 
     /**
      * Comprobación de que obtener test devuelve correctamente el resultado.

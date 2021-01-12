@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import java.util.Vector;
 
-public class CarpetaLimitadaTest extends TestCase {
+public class CarpetaLimitadaTest {
 
     private String nombre = "Contenido";
     private String contenido = "Texto de contenido";
@@ -16,6 +16,39 @@ public class CarpetaLimitadaTest extends TestCase {
     private String _nombre = "carpeta";
 
     Carpeta carpeta = new Carpeta(_nombre);
+
+    /**
+     * Comprobación de que no podemos realizar una carpeta limitada sobre null
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No podemos hacer una carpeta limitada sobre null
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void carpetaLimitadaSobreNull() {
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(null, 10);
+    }
+
+
+    /**
+     * Comprobación de que no podemos realizar una carpeta limitada sobre null
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No podemos hacer una carpeta limitada sobre null
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void carpetaLimitadaTamañoInvalido() {
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta, -10);
+    }
+
+
 
     /**
      * Comprobación de que la ruta es la esperada
@@ -99,6 +132,31 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que devuleve el añade y devuelve lo esperado a partir de lo añadido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *          Debería de devolver operación inválida y no nullpointer
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testAñadirNull() {
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta,10);
+
+        try {
+            carpetaLimitada.añadir(null);
+
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+
+
+    }
+
+
+    /**
      * Comprobación de que elimina correctamente
      *
      * Nivel da proba: UNIDAD
@@ -140,6 +198,29 @@ public class CarpetaLimitadaTest extends TestCase {
         }
     }
 
+    /**
+     * Comprobación de que devuleve el elimina y devuelve lo esperado a partir de lo añadido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *          Debería de devolver operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testEliminarNull() {
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta,10);
+
+        try {
+            carpetaLimitada.eliminar(null);
+
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+
+
+    }
 
     /**
      * Comprobación de que obtiene hijos correctamente
@@ -178,6 +259,29 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene null cuando no hay hijos
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No devuleve el null
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test
+    public void testObtenerHijoSinHijo() {
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta,10);
+
+
+        try {
+            Assert.assertEquals(null,carpetaLimitada.obtenerHijo(1));
+
+        } catch (OperacionInvalida operacionInvalida) {
+        }
+    }
+
+
+    /**
      * Comprobación de que obtenemos el padre correctamente
      *
      * Nivel da proba: UNIDAD
@@ -201,6 +305,25 @@ public class CarpetaLimitadaTest extends TestCase {
     }
 
 
+    /**
+     * Comprobación de que obtenemos una operacion invalida al añadir padre null
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      Debería de devolver Operación inválida
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
+    @Test (expected = OperacionInvalida.class)
+    public void testEstablecerPadreNull() {
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta,10);
+
+
+
+        carpetaLimitada.establecerPadre(null);
+
+    }
 
 
     /**
