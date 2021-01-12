@@ -10,7 +10,13 @@ public class TextoTest extends TestCase {
     private String contenido = "Texto número uno";
 
     /**
-     * Obtener mimeType de texto.
+     * Comprobación de obtener mimeType
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerMimeImagenType() {
@@ -20,19 +26,15 @@ public class TextoTest extends TestCase {
         Assert.assertEquals("text/plain", mimeType);
     }
 
-
     /**
-     * Obtener nombre del archivo texto.
+     * Comprobación de obtener nombre
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
-    @Test
-    public void obtenerNombreImagenTest(){
-        Texto texto = new Texto(nombreTexto, contenido);
-
-
-        Assert.assertEquals(nombreTexto,texto.obtenerNombre());
-    }
-
-
     @Test
     public void testObtenerNombre() {
         Texto texto = new Texto(nombreTexto, contenido);
@@ -41,7 +43,13 @@ public class TextoTest extends TestCase {
     }
 
     /**
-     *Obtener contenido del archivo texto.
+     * Comprobación de obtener contenido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerContenido() {
@@ -51,7 +59,13 @@ public class TextoTest extends TestCase {
     }
 
     /**
-     *Obtener tamaño del archivo texto.
+     * Comprobación de obtener tamaño
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerTamaño() {
@@ -62,7 +76,13 @@ public class TextoTest extends TestCase {
     }
 
     /**
-     *Obtener previsualización del archivo texto.
+     * Comprobación de obtener previsualización
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPreVisualizacion() {

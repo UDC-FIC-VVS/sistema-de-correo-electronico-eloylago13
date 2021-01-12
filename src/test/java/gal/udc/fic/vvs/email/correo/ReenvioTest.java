@@ -33,7 +33,13 @@ public class ReenvioTest extends TestCase {
     Mensaje reenvioMensaje2 = new Mensaje(reenvioTexto2);
 
     /**
+     * Comprobación de que devuleve el tamaño correcto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testTestObtenerTamaño() {
@@ -43,7 +49,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene la previsualización esperada
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testTestObtenerVisualizacion() {
@@ -53,7 +65,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
+     * Comprobación de que establece como leido y no obtiene ningún no leído
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testEstablecerLeidoYObtenerNoLeidos() {
@@ -66,7 +84,13 @@ public class ReenvioTest extends TestCase {
 
 
     /**
+     * Comprobación de que devuleve el icono correcto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testObtenerIcono() {
@@ -76,7 +100,15 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
-     * Mismo razonamiento seguido. No debería de aplicar "..."
+     * Comprobación de que obtiene la previsualización esperada
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de devolver los "..." para una cadena de esta longitud que
+     *      no necesita truncar
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testObtenerPreVisualizacion() {
@@ -86,7 +118,15 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
-     * Mismo razonamiento seguido. No debería de aplicar "..."
+     * Comprobación de que obtiene la ruta esperada
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de devolver los "..." para una cadena de esta longitud que
+     *      no necesita truncar
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testObtenerRuta() {
@@ -97,7 +137,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
-     * Al hacer un explorar de un correo, que su explorar devuelve excepción, es correcto.
+     * Comprobación de que obtienemos una excepción como se indica en el método
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test (expected = OperacionInvalida.class)
     public void testExplorar() {
@@ -111,7 +157,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene el vector con el reenvío a partir del contenido del texto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testBuscar() {
@@ -124,7 +176,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
-     * Hace añadir de correo que suelta una operación inválida.
+     * Comprobación de que obtienemos una excepción como se indica en el método
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test (expected =  OperacionInvalida.class)
     public void testAñadir() {
@@ -142,7 +200,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
-     * Hace eliminar de correo que suelta una operación inválida.
+     * Comprobación de que obtienemos una excepción como se indica en el método
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test (expected =  OperacionInvalida.class)
     public void testEliminar() {
@@ -159,7 +223,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos el hijo esperado a partir del padre
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testObtenerHijoYEstablecerPadre() {
@@ -176,7 +246,13 @@ public class ReenvioTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos el padre esperado a partir del hijo
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos:
      */
     @Test
     public void testObtenerPadre() {
@@ -188,20 +264,6 @@ public class ReenvioTest extends TestCase {
         Assert.assertEquals(reenvio2, reenvio.obtenerPadre());
 
     }
-
-
-    /**
-     * Mismo fallo previsualización. "..."
-     */
-    @Test
-    public void testTestObtenerRuta() {
-        Reenvio reenvio = new Reenvio(reenvioMensaje, correo);
-
-        Assert.assertEquals(contenidoRenvio,reenvio.obtenerRuta());
-    }
-
-
-
 
 
 }

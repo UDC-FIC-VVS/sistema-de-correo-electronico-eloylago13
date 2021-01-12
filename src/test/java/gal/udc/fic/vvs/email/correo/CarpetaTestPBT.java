@@ -15,7 +15,13 @@ public class CarpetaTestPBT {
 
 
     /**
+     * Comprobación de que obtiene hijo correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerHijoCarpeta(String nombre, String nombreTxt, String contenidoTxt) {
@@ -41,21 +47,5 @@ public class CarpetaTestPBT {
           }
     }
 
-    /**
-     *
-     */
-    @Property
-    public void testEstablecerYObtenerPadreCarpeta(String nombre, String nombre2) {
-        Carpeta carpeta = new Carpeta(nombre);
 
-        Carpeta carpeta2 = new Carpeta(nombre2);
-
-        carpeta2.establecerPadre(carpeta);
-
-
-        Assert.assertEquals(carpeta2, carpeta2.obtenerPadre());
-
-
-
-    }
 }

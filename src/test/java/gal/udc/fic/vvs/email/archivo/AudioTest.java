@@ -10,7 +10,13 @@ public class AudioTest extends TestCase {
     private String contenido = "Canción número uno";
 
     /**
-     * Obtener mimeType de audio.
+     * Comprobación de obtener mimeType
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerMimeType() {
@@ -22,7 +28,13 @@ public class AudioTest extends TestCase {
 
 
     /**
-     *Obtener nombre del archivo audio.
+     * Comprobación de obtener nombre
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerNombre() {
@@ -32,7 +44,13 @@ public class AudioTest extends TestCase {
     }
 
     /**
-     *Obtener contenido del archivo audio.
+     * Comprobación de obtener contenido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerContenido() {
@@ -43,7 +61,13 @@ public class AudioTest extends TestCase {
 
 
     /**
-     *Obtener tamaño del archivo audio.
+     * Comprobación de obtener tamaño
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     public void testObtenerTamaño() {
         Audio audio = new Audio(nombreAudio, contenido);
@@ -51,7 +75,13 @@ public class AudioTest extends TestCase {
     }
 
     /**
-     *Obtener previsualización del archivo audio.
+     * Comprobación de obtener previsualización
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPreVisualizacion() {

@@ -18,7 +18,13 @@ public class CarpetaLimitadaTest extends TestCase {
     Carpeta carpeta = new Carpeta(_nombre);
 
     /**
+     * Comprobación de que la ruta es la esperada
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerRuta() {
@@ -52,7 +58,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que devuleve el añade y devuelve lo esperado a partir de lo añadido
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testExplorarYAñadir() {
@@ -87,7 +99,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que elimina correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEliminar() {
@@ -124,7 +142,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene hijos correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerHijo() {
@@ -149,13 +173,18 @@ public class CarpetaLimitadaTest extends TestCase {
             Assert.assertEquals(mensaje2,carpetaLimitada.obtenerHijo(1));
 
         } catch (OperacionInvalida operacionInvalida) {
-            operacionInvalida.printStackTrace();
         }
     }
 
 
     /**
+     * Comprobación de que obtenemos el padre correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerYObtenerPadre() {
@@ -175,7 +204,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que establece leidos y obtiene no leidos correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerLeidoYObtenerNoLeidos() {
@@ -204,7 +239,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene tamaño correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerTamaño() {
@@ -229,7 +270,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene icono correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerIcono() {
@@ -242,7 +289,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene previsualización correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPreVisualizacion() {
@@ -267,7 +320,13 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene visualización correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerVisualizacion() {
@@ -296,11 +355,17 @@ public class CarpetaLimitadaTest extends TestCase {
 
 
     /**
-     * Poniendo 9 de tamaño realmente serían 10
+     * Comprobación de que obtiene previsualización correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *  Poniendo 9 de tamaño realmente serían 10
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testBuscar() {
-        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta,9);
+        CarpetaLimitada carpetaLimitada = new CarpetaLimitada(carpeta,10);
         Texto nuevoTexto = new Texto(nombre, contenido);
         Mensaje mensaje = new Mensaje(nuevoTexto);
 

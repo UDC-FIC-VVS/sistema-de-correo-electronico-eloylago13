@@ -10,7 +10,13 @@ public class ImagenTest extends TestCase {
     private String contenido = "Imagen número uno";
 
     /**
-     * Obtener mimeType de imagen.
+     * Comprobación de obtener mimeType
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerMimeImagenType() {
@@ -21,7 +27,13 @@ public class ImagenTest extends TestCase {
     }
 
     /**
-     * Obtener nombre del archivo imagen.
+     * Comprobación de obtener nombre
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerNombre() {
@@ -31,7 +43,13 @@ public class ImagenTest extends TestCase {
     }
 
     /**
-     *Obtener contenido del archivo imagen.
+     * Comprobación de obtener contenido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerContenido() {
@@ -41,7 +59,13 @@ public class ImagenTest extends TestCase {
     }
 
     /**
-     *Obtener tamaño del archivo imagen.
+     * Comprobación de obtener tamaño
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerTamaño() {
@@ -52,7 +76,13 @@ public class ImagenTest extends TestCase {
     }
 
     /**
-     *Obtener previsualización del archivo imagen.
+     * Comprobación de obtener previsualización
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPreVisualizacion() {

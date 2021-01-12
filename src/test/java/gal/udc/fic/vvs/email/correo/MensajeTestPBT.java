@@ -16,6 +16,12 @@ public class MensajeTestPBT {
      *  Creamos un texto y se lo añadimos a un mensaje.
      *  Ese mensaje inicialmente está como no leído. Lo comprobamos y luego lo marcamos como leído.
      *  Por último comprobamo que no queda ningún mensaje como leído.
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generado aleatoriamente
      */
     @Property
     public void testEstablecerLeidoMensaje(String nombre, String contenido) {
@@ -36,6 +42,12 @@ public class MensajeTestPBT {
      *  Creamos un texto y se lo añadimos a un mensaje.
      *  Ese mensaje inicialmente está como no leído. Lo comprobamos y luego lo marcamos como leído. A continuación, volvemos a desmarcarlo
      *  Por último comprobamo que queda un mensaje como no leído.
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generado aleatoriamente
      */
     @Property
     public void testEstablecerYObtenerNoLeidoMensaje(String nombre, String contenido) {
@@ -57,6 +69,11 @@ public class MensajeTestPBT {
     /** Comprobación de icono según el estado de leído de un mensaje.
      *  Primero creamos un mensaje que por defecto no estará leído, y comprobamos que el icono es el que le corresponde.
      *  Después lo marcamos como leído y luego vemos que el icono es el de leído.
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generado aleatoriamente
      */
     @Property
     public void testObtenerIconoMensaje(String nombre, String contenido) {
@@ -71,19 +88,7 @@ public class MensajeTestPBT {
     }
 
 
-    /** Test que comprueba que trunca los mensajes mayores a una constante y no trunca los que son menores.
-     * Creamos dos mensajes, uno largo y otro pequeño y comprobamos como devuelve la previsualización de ambos.
-     * El mensaje corto debería de aparecer sin "..." ya que muestra el mensaje completo.
-     * (No se cómo comprobar usando valores aleatorios que si la longitud es menor a la indicada no debería de devolver ...
-     */
-    @Property
-    public void testTestObtenerPreVisualizacionMensaje(String nombre, String contenido) {
 
-
-        Texto texto = new Texto(nombre, contenido);
-        Mensaje mensaje = new Mensaje(texto);
-
-    }
 
     /**
      *
@@ -99,9 +104,14 @@ public class MensajeTestPBT {
 
 
 
-
     /**
-     * Funciona correctamente aunque debería de prescindir de los "...". Corregir previsualización
+     * Comprobación de que obtiene correctamente la visualización
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerRutaMensaje(String nombre, String contenido) {
@@ -118,7 +128,13 @@ public class MensajeTestPBT {
 
 
     /**
+     * Comprobación de que obtiene correctamente los hijos
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerHijoMensaje(String nombre, String contenido) {
@@ -138,7 +154,13 @@ public class MensajeTestPBT {
     }
 
     /**
+     * Comprobación de que establece correctamente y obtiene padre
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testEstablecerYObtenerPadreMensaje(String nombre, String contenido) {

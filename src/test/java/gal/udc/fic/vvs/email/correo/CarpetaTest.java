@@ -16,7 +16,13 @@ public class CarpetaTest extends TestCase {
     private String _nombre = "carpeta";
 
     /**
+     * Comprobación de que devuleve el añade y devuelve lo esperado a partir de lo añadido
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testExplorarYAñadirCarpeta() {
@@ -51,7 +57,13 @@ public class CarpetaTest extends TestCase {
 
 
     /**
+     * Comprobación de que elimina corerctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEliminar() {
@@ -87,7 +99,13 @@ public class CarpetaTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene hijo correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerHijoCarpeta() {
@@ -115,9 +133,14 @@ public class CarpetaTest extends TestCase {
             operacionInvalida.printStackTrace();
         }
     }
-
     /**
+     * Comprobación de que establece como leido correctamente y devuelve los no leidos
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerLeidoYObtenerNoLeidos() {
@@ -146,7 +169,13 @@ public class CarpetaTest extends TestCase {
 
 
     /**
+     * Comprobación de que obtiene el tamaño correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerTamaño() {
@@ -169,7 +198,13 @@ public class CarpetaTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene el icono correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerIcono() {
@@ -179,7 +214,13 @@ public class CarpetaTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene la previsualización correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPreVisualizacion() {
@@ -203,7 +244,13 @@ public class CarpetaTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene la visualización correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerVisualizacion() {
@@ -227,7 +274,13 @@ public class CarpetaTest extends TestCase {
     }
 
     /**
+     * Comprobación de que busca correctamente con algo añadido
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testBuscar() {

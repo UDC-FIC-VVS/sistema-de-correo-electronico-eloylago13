@@ -17,6 +17,12 @@ public class MensajeTest extends TestCase {
      *  Creamos un texto y se lo añadimos a un mensaje.
      *  Ese mensaje inicialmente está como no leído. Lo comprobamos y luego lo marcamos como leído.
      *  Por último comprobamo que no queda ningún mensaje como leído.
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerLeidoMensaje() {
@@ -35,6 +41,13 @@ public class MensajeTest extends TestCase {
      *  Creamos un texto y se lo añadimos a un mensaje.
      *  Ese mensaje inicialmente está como no leído. Lo comprobamos y luego lo marcamos como leído. A continuación, volvemos a desmarcarlo
      *  Por último comprobamo que queda un mensaje como no leído.
+     * Comprobación de que busca correctamente con algo añadido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerYObtenerNoLeidoMensaje() {
@@ -56,6 +69,12 @@ public class MensajeTest extends TestCase {
     /** Comprobación de icono según el estado de leído de un mensaje.
      *  Primero creamos un mensaje que por defecto no estará leído, y comprobamos que el icono es el que le corresponde.
      *  Después lo marcamos como leído y luego vemos que el icono es el de leído.
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
 
@@ -72,8 +91,15 @@ public class MensajeTest extends TestCase {
 
 
     /** Test que comprueba que trunca los mensajes mayores a una constante y no trunca los que son menores.
-     * Creamos dos mensajes, uno largo y otro pequeño y comprobamos como devuelve la previsualización de ambos.
-     * El mensaje corto debería de aparecer sin "..." ya que muestra el mensaje completo.
+     *
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      Creamos dos mensajes, uno largo y otro pequeño y comprobamos como devuelve la previsualización de ambos.
+     *       El mensaje corto debería de aparecer sin "..." ya que muestra el mensaje completo.
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testTestObtenerPreVisualizacionMensaje() {
@@ -93,7 +119,13 @@ public class MensajeTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene correctamente la visualización
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testTestObtenerVisualizacionMensaje() {
@@ -112,7 +144,14 @@ public class MensajeTest extends TestCase {
     }
 
     /**
-     * Habría que corregir el código. Debería de dar un vector vacio. El código acepta una búsqueda con cadena vacía.
+     * Comprobación de que busca correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      Habría que corregir el código. Debería de dar un vector vacio. El código acepta una búsqueda con cadena vacía.
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testTestBuscarMensaje() {
@@ -138,8 +177,16 @@ public class MensajeTest extends TestCase {
         Assert.assertEquals(0,((Vector)mensaje.buscar(cadenaBusqueda3)).size());
     }
 
+
     /**
-     * CON TEXTO NULO NO PASA TEST. DEBERÍA DE DEVOLVER CADENA VACÍA.
+     * Comprobación de que busca correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *     CON TEXTO NULO NO PASA TEST. DEBERÍA DE DEVOLVER CADENA VACÍA.
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void mensajeTextoNuloMensaje() {
@@ -154,23 +201,17 @@ public class MensajeTest extends TestCase {
 
     }
 
-    /**
-     * Comprobamos que devuelve 0.
-     */
-    @Test
-    public void mensajeSinTextoMensaje() {
-        String textoVacio = "";
-        String textoEsperado = "";
-        Texto nuevoTextoVacio = new Texto("ContenidoVacio", textoVacio);
-        Mensaje mensajeVacio = new Mensaje(nuevoTextoVacio);
-
-        Assert.assertEquals(textoEsperado, mensajeVacio.obtenerVisualizacion());
-        Assert.assertEquals(0, mensajeVacio.obtenerTamaño());
-    }
 
 
     /**
-     * Funciona correctamente aunque debería de prescindir de los "...". Corregir previsualización
+     * Comprobación de que obtiene ruta correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      Mismo error previsualización
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerRutaMensaje() {
@@ -178,11 +219,18 @@ public class MensajeTest extends TestCase {
         Mensaje mensaje = new Mensaje(nuevoTexto);
 
         //Como no tiene padre, debería de devolver la previsualización del contenido.
-        Assert.assertEquals("Texto de contenido...",mensaje.obtenerRuta());
+        Assert.assertEquals("Texto de contenido",mensaje.obtenerRuta());
     }
 
     /**
-     * Corregir el previsualización. No tiene sentido que devolvamos ... con un mensaje tan corto.
+     * Comprobación de que obtiene ruta con padre correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      Habría que corregir el código. Debería de dar un vector vacio. El código acepta una búsqueda con cadena vacía.
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerRutaConPadreMensaje() {
@@ -198,7 +246,13 @@ public class MensajeTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene excepción
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test (expected = OperacionInvalida.class)
     public void testExplorarMensaje() {
@@ -214,7 +268,13 @@ public class MensajeTest extends TestCase {
     }
 
     /**
+     * Comprobación de que añade mensaje correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testAñadirMensaje() {
@@ -231,7 +291,13 @@ public class MensajeTest extends TestCase {
     }
 
     /**
+     * Comprobación de que elimina mensaje correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEliminarMensaje() {
@@ -248,7 +314,13 @@ public class MensajeTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene hijo correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerHijoMensaje() {
@@ -268,7 +340,13 @@ public class MensajeTest extends TestCase {
     }
 
     /**
+     * Comprobación de que establece y obtiene padre correctamente
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerYObtenerPadreMensaje() {

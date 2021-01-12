@@ -18,7 +18,13 @@ public class CabeceraTest extends TestCase {
     MensajeAbstracto mensaje = new Mensaje(texto);
 
     /**
+     * Comprobación de que establece como leido y no obtiene ningún no leído
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testEstablecerLeidoYObtenerNoLeidos() {
@@ -26,13 +32,17 @@ public class CabeceraTest extends TestCase {
 
         cabecera.establecerLeido(true);
         Assert.assertEquals(0,cabecera.obtenerNoLeidos());
-
-
     }
 
 
     /**
+     * Comprobación de que devuleve el tamaño correcto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerTamaño() {
@@ -43,7 +53,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que devuleve el icono correcto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerIcono() {
@@ -54,7 +70,15 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
-     * Mismo problema. "..."
+     * Comprobación de que obtiene la previsualización esperada
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de devolver los "..." para una cadena de esta longitud que
+     *      no necesita truncar
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPreVisualizacion() {
@@ -65,7 +89,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene la previsualización esperada
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerVisualizacion() {
@@ -76,7 +106,15 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
-     * Mismo razonamiento seguido. No debería de aplicar "..."
+     * Comprobación de que obtiene la ruta esperada
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de devolver los "..." para una cadena de esta longitud que
+     *      no necesita truncar
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerRuta() {
@@ -87,7 +125,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos una excepción como se indica en el método
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test (expected = OperacionInvalida.class)
     public void testExplorar() {
@@ -101,7 +145,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtiene el vector con la cabecera a partir del contenido del texto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testBuscar() {
@@ -114,7 +164,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos una excepción como se indica en el método
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test (expected =  OperacionInvalida.class)
     public void testAñadir() {
@@ -132,7 +188,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos una excepción como se indica en el método
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test (expected =  OperacionInvalida.class)
     public void testEliminar() {
@@ -150,7 +212,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos el hijo esperado a partir del padre
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerHijoYEstablecerPadre() {
@@ -168,7 +236,13 @@ public class CabeceraTest extends TestCase {
     }
 
     /**
+     * Comprobación de que obtienemos el padre esperado a partir del hijo
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: mi criterio
      */
     @Test
     public void testObtenerPadre() {
@@ -181,19 +255,6 @@ public class CabeceraTest extends TestCase {
         Assert.assertEquals(cabecera2, cabecera.obtenerPadre());
 
     }
-
-    /**
-     * Mismo fallo previsualización. "..."
-     */
-    @Test
-    public void testTestObtenerRuta() {
-        Cabecera cabecera = new Cabecera(mensaje, nombreCabecera, valorCabecera);
-        Assert.assertEquals(contenidoTexto,cabecera.obtenerRuta());
-
-
-
-    }
-
 
 
 }

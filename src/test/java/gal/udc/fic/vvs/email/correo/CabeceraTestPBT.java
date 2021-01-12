@@ -13,8 +13,15 @@ import java.util.Vector;
 
 @RunWith(JUnitQuickcheck.class)
 public class CabeceraTestPBT {
+
     /**
+     * Comprobación de que obtener tamaño devuelve correctamente el resultado.
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerTamañoCabecera(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
@@ -26,7 +33,13 @@ public class CabeceraTestPBT {
 
 
     /**
+     * Comprobación de que establece como leido y no obtiene ningún no leído
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testEstablecerLeidoYObtenerNoLeidos(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
@@ -38,9 +51,14 @@ public class CabeceraTestPBT {
     }
 
 
-
     /**
+     * Comprobación de que devuleve el icono correcto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerIcono(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
@@ -52,7 +70,15 @@ public class CabeceraTestPBT {
     }
 
     /**
-     * Mismo problema. "..."
+     * Comprobación de que obtiene la previsualización esperada
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de devolver los "..." para una cadena de esta longitud que
+     *      no necesita truncar
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerPreVisualizacion(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
@@ -64,7 +90,13 @@ public class CabeceraTestPBT {
     }
 
     /**
+     * Comprobación de que obtiene la visualización esperada
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerVisualizacion(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
@@ -75,7 +107,15 @@ public class CabeceraTestPBT {
     }
 
     /**
-     * Mismo razonamiento seguido. No debería de aplicar "..."
+     * Comprobación de que obtiene la ruta esperada
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra negativa
+     *      No debería de devolver los "..." para una cadena de esta longitud que
+     *      no necesita truncar
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerRuta(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio,String nombre, String valor) {
@@ -86,7 +126,13 @@ public class CabeceraTestPBT {
     }
 
     /**
+     * Comprobación de que obtienemos una excepción como se indica en el método
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testExplorar(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio,String nombre, String valor) {
@@ -101,7 +147,13 @@ public class CabeceraTestPBT {
     }
 
     /**
+     * Comprobación de que obtiene el vector con el adjunto a partir del contenido del texto
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testBuscar(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio,String nombre, String valor) {
@@ -114,10 +166,14 @@ public class CabeceraTestPBT {
     }
 
 
-
-
     /**
+     * Comprobación de que obtienemos el hijo esperado a partir del padre
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerHijoYEstablecerPadre(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
@@ -136,7 +192,13 @@ public class CabeceraTestPBT {
     }
 
     /**
+     * Comprobación de que obtienemos el padre esperado a partir del hijo
      *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
      */
     @Property
     public void testObtenerPadre(@From(GeneradorMensajePBT.class) Mensaje mensajeAleatorio, String nombre, String valor) {
