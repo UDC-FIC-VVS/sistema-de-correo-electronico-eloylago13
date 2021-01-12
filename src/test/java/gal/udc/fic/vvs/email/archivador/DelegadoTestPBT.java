@@ -14,6 +14,17 @@ import static org.junit.Assert.assertTrue;
 @RunWith(JUnitQuickcheck.class)
 public class DelegadoTestPBT {
 
+
+    /**
+     * Comprobación de obtener nombre
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
     @Property
     public void testObtenerNombre(String nombre, @InRange(min="1") int espacio) {
         ArchivadorSimple arch = new ArchivadorSimple(nombre, espacio);
@@ -23,6 +34,16 @@ public class DelegadoTestPBT {
         Assert.assertEquals(nombre, del.obtenerNombre());
     }
 
+    /**
+     * Comprobación de almacenar correo válido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
     @Property
     public void testAlmacenarCorreo(String nombre, @InRange(min="1") int espacio, String nombreTexto, String contenidoTexto) {
         ArchivadorSimple arch = new ArchivadorSimple(nombre, espacio);
@@ -36,6 +57,16 @@ public class DelegadoTestPBT {
 
     }
 
+    /**
+     * Comprobación de espacio total válido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
     @Property
     public void testObtenerEspacioTotal(String nombre, @InRange(min="1") int espacio) {
         ArchivadorSimple arch = new ArchivadorSimple(nombre, espacio);
@@ -47,6 +78,16 @@ public class DelegadoTestPBT {
 
     }
 
+    /**
+     * Comprobación de espacio disponible válido
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     *
+     * Mecanismo de selección dos datos: mi criterio
+     */
     @Property
     public void testObtenerEspacioDisponible(String nombre, @InRange(min="1") int espacio, String nombreTexto, String contenidoTexto) {
         ArchivadorSimple arch = new ArchivadorSimple(nombre, espacio);
