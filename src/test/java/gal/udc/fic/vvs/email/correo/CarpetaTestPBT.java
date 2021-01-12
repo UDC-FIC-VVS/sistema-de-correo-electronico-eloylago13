@@ -15,6 +15,36 @@ public class CarpetaTestPBT {
 
 
     /**
+     * Comprobación de que obtiene el tamaño correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generado aleatoriamente
+     */
+    @Property
+    public void testObtenerTamaño(String nombre, String nombreTxt, String contenidoTxt, String contenidoTxt2) {
+        Carpeta carpeta = new Carpeta(nombre);
+
+        Texto nuevoTexto = new Texto(nombreTxt, contenidoTxt);
+        Mensaje mensaje = new Mensaje(nuevoTexto);
+
+        Texto nuevoTexto2 = new Texto(nombre, contenidoTxt2);
+        Mensaje mensaje2 = new Mensaje(nuevoTexto2);
+
+        try {
+            carpeta.añadir(mensaje);
+            carpeta.añadir(mensaje2);
+
+        } catch (OperacionInvalida operacionInvalida) {
+
+        }
+        Assert.assertEquals((contenidoTxt+contenidoTxt2).length(),carpeta.obtenerTamaño());
+    }
+
+
+    /**
      * Comprobación de que obtiene hijo correctamente
      *
      * Nivel da proba: UNIDAD
@@ -46,6 +76,27 @@ public class CarpetaTestPBT {
         operacionInvalida.printStackTrace();
           }
     }
+
+
+    /**
+     * Comprobación de que obtiene icono correctamente
+     *
+     * Nivel da proba: UNIDAD
+     *
+     * Categorías ás que pertence: funcional dinámica caja negra positiva
+     *
+     * Mecanismo de selección dos datos: generados aleatoriamente
+     */
+    @Property
+    public void testObtenerIcono(String nombre) {
+
+        Carpeta carpeta = new Carpeta(nombre);
+
+        Assert.assertEquals(Correo.ICONO_CARPETA,carpeta.obtenerIcono());
+
+    }
+
+
 
 
 }
