@@ -1,6 +1,5 @@
 package gal.udc.fic.vvs.email.archivo;
 
-import com.sun.org.apache.bcel.internal.ExceptionConstants;
 import gal.udc.fic.vvs.email.correo.OperacionInvalida;
 import junit.framework.TestCase;
 import org.junit.Assert;
@@ -12,36 +11,6 @@ public class AudioTest  {
     private String contenido = "Canción número uno";
 
 
-    /**
-     * Comprobación de crear un audio sin contenido
-     *
-     * Nivel da proba: UNIDAD
-     *
-     * Categorías ás que pertence: funcional dinámica caja negra negativa
-     *      No deberíamos de poder crear un audio sin contenido
-     *
-     * Mecanismo de selección dos datos: mi criterio
-     */
-    @Test (expected = OperacionInvalida.class)
-    public void audioSinContenido() {
-        Audio audio = new Audio(nombreAudio, null);
-
-    }
-
-    /**
-     * Comprobación de obtener nombre nulo
-     *
-     * Nivel da proba: UNIDAD
-     *
-     * Categorías ás que pertence: funcional dinámica caja negra negativa
-     *      No deberíamos de poder crear un audio sin nombre
-     *
-     * Mecanismo de selección dos datos: mi criterio
-     */
-    @Test (expected = OperacionInvalida.class)
-    public void audioSinNombre() {
-        Audio audio = new Audio(null, contenido);
-    }
 
     /**
      * Comprobación de obtener mimeType
