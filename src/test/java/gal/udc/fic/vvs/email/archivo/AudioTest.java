@@ -2,15 +2,15 @@ package gal.udc.fic.vvs.email.archivo;
 
 import gal.udc.fic.vvs.email.correo.OperacionInvalida;
 import junit.framework.TestCase;
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class AudioTest  {
 
     private String nombreAudio = "Canción";
     private String contenido = "Canción número uno";
-
-
 
     /**
      * Comprobación de obtener mimeType
