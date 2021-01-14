@@ -1,0 +1,16 @@
+Informe resumen
+
+Este documento describe el estado de la práctica y las aclaraciones que he visto convenientes realizar:
+
+-Se hizo la práctica usando IntelliJ, donde pude comprobar la cobertura de mis test directamente ejecutándolos. La cobertura de correo y archivo está 
+próxima al 100% mientras que la de archivador es un poco más baja (por cuestiones de tiempo no pude completarla y hacer tests con más casos para las demás clases).
+
+-En la entrada de la tercera semana del foro, se exponen varias herramientas con las que trabajar. No he conseguido que funcionasen pitest ni jetm, por problemas de
+dependencias o porque pitest me pedía un entorno verde el cuál no tenía ya que pensaba que no había que corregir el código. Debido a esto, pese a poder ejecutar
+la herramienta no se me genera ningún archivo html como debería (aunque si la carpeta donde se almacenarían).
+Los test de archunit están hechos siguiendo el ejemplo del trial de la página, pero por alguna razón, son exitosos para cualquier caso.
+En archunit se comprueba que todos los métodos son públicos y el resultado de los mismos es del tipo que se indica (string, int...).
+
+Los xml generados por las herramientas checkstyle y spotbugs están a nivel directorio raíz, como este documento.
+
+

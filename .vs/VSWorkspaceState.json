@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\gal",
+    "\\src\\main\\java\\gal\\udc",
+    "\\src\\main\\java\\gal\\udc\\fic",
+    "\\src\\main\\java\\gal\\udc\\fic\\vvs",
+    "\\src\\main\\java\\gal\\udc\\fic\\vvs\\email",
+    "\\src\\main\\java\\gal\\udc\\fic\\vvs\\email\\archivador",
+    "\\src\\test"
+  ],
+  "SelectedNode": "\\src\\main\\java\\gal\\udc\\fic\\vvs\\email\\archivador\\Archivador.java",
+  "PreviewInSolutionExplorer": false
+}
